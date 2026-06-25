@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+/* ─── BTRC IMS Custom Design Tokens ─────────────────────────── */
+@theme {
+  /* BTRC Brand */
+  --color-brand:        #003D7A;
+  --color-brand-light:  #0056A8;
+  --color-brand-dark:   #002456;
+  --color-brand-muted:  #E8F0FB;
+
+  /* Site Status */
+  --color-status-active:    #22c55e;
+  --color-status-down:      #ef4444;
+  --color-status-degraded:  #f59e0b;
+
+  /* Status backgrounds */
+  --color-status-active-bg:   #dcfce7;
+  --color-status-down-bg:     #fee2e2;
+  --color-status-degraded-bg: #fef3c7;
+
+  /* Power sources */
+  --color-power-grid:      #3b82f6;
+  --color-power-generator: #f97316;
+  --color-power-battery:   #8b5cf6;
+  --color-power-solar:     #eab308;
+
+  /* Alert severities */
+  --color-alert-critical: #ef4444;
+  --color-alert-warning:  #f59e0b;
+  --color-alert-info:     #3b82f6;
+
+  /* Sidebar */
+  --color-sidebar-bg:     #0f172a;
+  --color-sidebar-hover:  #1e293b;
+  --color-sidebar-active: #1e3a5f;
+  --color-sidebar-text:   #94a3b8;
+  --color-sidebar-text-active: #ffffff;
+
+  /* Surface */
+  --color-surface:        #f8fafc;
+  --color-surface-card:   #ffffff;
+  --color-border:         #e2e8f0;
+}
+
+/* ─── Mobile blocker ─────────────────────────────────────────── */
+#mobile-block {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  #mobile-block {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #0f172a;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  #root {
+    display: none;
+  }
+
+  .mobile-block-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 320px;
+    gap: 16px;
+  }
+
+  .mobile-block-icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-block-icon svg {
+    stroke: #60a5fa;
+  }
+
+  .mobile-block-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: -0.02em;
+  }
+
+  .mobile-block-body {
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+
+  .mobile-block-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 9999px;
+    padding: 4px 14px;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* ─── Theme Tokens ───────────────────────────────────────────── */
+:root, [data-theme="light"] {
+  --bg-base:          #f8fafc;
+  --card-bg:          #ffffff;
+  --card-bg-2:        #f1f5f9;
+  --border:           #e2e8f0;
+  --text-primary:     #0f172a;
+  --text-secondary:   #64748b;
+  --text-muted:       #94a3b8;
+  --topbar-bg:        #ffffff;
+  --topbar-border:    #e2e8f0;
+  --topbar-title:     #1e293b;
+  --topbar-divider:   #e2e8f0;
+}
+
+[data-theme="dark"] {
+  --bg-base:          #080d1a;
+  --card-bg:          #0f1a2e;
+  --card-bg-2:        #162032;
+  --border:           #1e3352;
+  --text-primary:     #e2e8f0;
+  --text-secondary:   #7fa8c8;
+  --text-muted:       #3d5a7a;
+  --topbar-bg:        #0b1221;
+  --topbar-border:    rgba(56,189,248,0.08);
+  --topbar-title:     #e2e8f0;
+  --topbar-divider:   rgba(255,255,255,0.07);
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, 'Segoe UI', Roboto, -apple-system, sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--bg-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ─── Fiber cut route animation ──────────────────────────────── */
+@keyframes fiberCutFlow {
+  0%   { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -22; }
+}
+
+.fiber-cut path {
+  animation: fiberCutFlow 0.6s linear infinite;
+}
+
+/* ─── Site marker pulse animation ────────────────────────────── */
+@keyframes sitePulse {
+  0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.75; }
+  100% { transform: translate(-50%, -50%) scale(3.2); opacity: 0; }
+}
+
+/* ─── Shimmer skeleton animation ─────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #f1f5f9 25%,
+    #e2e8f0 50%,
+    #f1f5f9 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* ─── IMS Card component layer ───────────────────────────────── */
+@layer components {
+  .ims-card {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    padding: 16px;
+  }
+
+  .ims-panel {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .ims-section-header {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin-bottom: 12px;
+  }
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BTRC Infrastructure Monitoring System — Real-time nationwide telecom infrastructure oversight dashboard" />
+    <title>BTRC IMS — Infrastructure Monitoring System</title>
+    <!-- Prevent favicon 404 in dev -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23003D7A'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='12' font-weight='bold' font-family='system-ui'>IMS</text></svg>" />
+  </head>
+  <body>
+    <div id="mobile-block">
+      <div class="mobile-block-inner">
+        <div class="mobile-block-icon">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#003D7A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="mobile-block-title">Desktop Required</div>
+        <div class="mobile-block-body">
+          BTRC IMS is optimised for laptop and desktop screens.<br/>
+          Please switch to a larger device to access the dashboard.
+        </div>
+        <div class="mobile-block-badge">Minimum recommended: 1280 × 720</div>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "options": {
+    "paths": {
+      "root": "/usr/src/app/node_modules/tileserver-gl-styles",
+      "fonts": "fonts",
+      "styles": "/data/styles",
+      "mbtiles": "/data",
+      "pmtiles": "/data"
+    }
+  },
+  "styles": {
+    "basic-preview": {
+      "style": "/usr/src/app/node_modules/tileserver-gl-styles/styles/basic-preview/style.json"
+    },
+    "osm-nolabels": {
+      "style": "osm-nolabels.json"
+    },
+    "clean": {
+      "style": "clean.json"
+    }
+  },
+  "data": {
+    "v3": {
+      "mbtiles": "osm-2020-02-10-v3.11_asia_bangladesh.mbtiles"
+    }
+  }
+}

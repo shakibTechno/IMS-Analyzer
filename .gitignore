@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Raw GeoJSON source data (large; processed output is in public/data/)
+bgd_admin_boundaries.geojson/
+public/data/bd-highways.geojson
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Large raw GIS source files (use GeoJSON outputs in public/data/ instead)
+MapData/FHLFON/
+MapData/Bahon Limited Shape Files/
+
+# Local tile server — MBTiles are large binaries, not for version control
+tiles/*.mbtiles
