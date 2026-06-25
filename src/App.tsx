@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useThemeStore } from '@/store/themeStore'
+import btrcLogo from '@/assets/Logo/btrcLogo.png'
 
 import Sidebar           from '@/components/layout/Sidebar'
 import TopBar            from '@/components/layout/TopBar'
@@ -26,6 +27,13 @@ function ThemeApplier() {
   useEffect(() => {
     document.documentElement.dataset.theme = theme
   }, [theme])
+  useEffect(() => {
+    const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]') ?? document.createElement('link')
+    link.rel  = 'icon'
+    link.type = 'image/png'
+    link.href = btrcLogo
+    document.head.appendChild(link)
+  }, [])
   return null
 }
 
