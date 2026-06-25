@@ -270,7 +270,7 @@ function AreaBarChart({ pops, division }: { pops: ISPPop[]; division: string }) 
           <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="var(--border)" />
           <XAxis type="number" tick={{ fontSize: 10, fill: '#94a3b8' }} tickLine={false} axisLine={false} />
           <YAxis type="category" dataKey="name" tick={{ fontSize: 10, fill: '#64748b' }} tickLine={false} axisLine={false} width={95} />
-          <RTooltip formatter={(v: number) => [v.toLocaleString(), 'PoPs']} contentStyle={{ fontSize: 12, borderRadius: 6, border: '1px solid var(--border)', background: 'var(--card-bg)' }} />
+          <RTooltip formatter={(v) => [Number(v).toLocaleString(), 'PoPs']} contentStyle={{ fontSize: 12, borderRadius: 6, border: '1px solid var(--border)', background: 'var(--card-bg)' }} />
           <Bar dataKey="value" radius={[0, 4, 4, 0]}>
             {data.map((_, i) => <Cell key={i} fill={`hsl(${215 - i * 7}, 72%, ${55 + i * 1.5}%)`} />)}
           </Bar>
